@@ -9,8 +9,7 @@ class Solution:
 
         # Outer while loop goes through all sliding iterations.
         while right_edge <= len(nums) - 1:
-            local_max = float('-inf')
-            local_max = max(nums[left_edge:right_edge])
+            local_max = max(nums[left_edge:right_edge + 1])
             maximums.append(local_max)
 
             left_edge = left_edge + 1
