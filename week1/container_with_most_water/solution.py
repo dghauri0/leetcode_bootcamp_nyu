@@ -12,13 +12,20 @@ class Solution:
         right_edge = len(height) - 1
         output = -1
 
-        # Move edges closer together and calculate max capacity
+        # Move edges closer together and calculate max capacity.
         while left_edge < right_edge:
+
+            # Calculate distance between container edges.
             distance = right_edge - left_edge
+
+            # What is the non-slanted container height.
             height_container = min(height[left_edge], height[right_edge])
+
+            # Update maxArea if the area is greater than the previous maxArea calc.
             if distance * height_container > output:
                 output = distance * height_container
 
+            # Move edges closer.
             if height[left_edge] < height[right_edge]:
                 left_edge = left_edge + 1
             else:
