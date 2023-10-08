@@ -11,8 +11,8 @@ class Solution:
         output = -1
         for i in range(len(height) - 1):
             for j in range(i + 1, len(height)):
-                if height[j] <= height[i]:
-                    distance = j - i
-                    if height[j] * distance > output:
-                        output = height[j] * distance
+                distance = j - i
+                if min(height[j], height[i]) * distance > output:
+                    output = min(height[j], height[i]) * distance
+
         return output
