@@ -8,11 +8,20 @@ from typing import List
 # Notice that you may not slant the container.
 class Solution:
     def maxArea(self, height: List[int]) -> int:
+        left_edge = 0
+        right_edge = len(height) - 1
         output = -1
-        for i in range(len(height) - 1):
-            for j in range(i + 1, len(height)):
-                distance = j - i
-                if min(height[j], height[i]) * distance > output:
-                    output = min(height[j], height[i]) * distance
+
+        # Move edges closer together and calculate max capacity
+        while left_edge < right_edge:
+            distance = right_edge - left_edge
+            height_container = min(height[left_edge], height[right_edge])
+            if distance * height_container > output:
+                output = distance * height_container
+
+            if height[left_edge] < height[right_edge]:
+                left_edge = left_edge + 1
+            else:
+                right_edge = right_edge - 1
 
         return output
