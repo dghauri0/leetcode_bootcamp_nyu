@@ -10,3 +10,4 @@ if __name__ == '__main__':
     print(sol.containsDuplicate(test1))
     print(sol.containsDuplicate(test2))
 
+
