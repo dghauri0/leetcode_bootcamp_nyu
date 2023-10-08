@@ -1,21 +1,12 @@
-# This is a sample Python script.
+from solution import Solution
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+sol = Solution()
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    test0 = [1,2,3,1]
+    test1 = [1,2,3,4]
+    test2 = [1,1,1,3,3,4,3,2,4,2]
+    print(sol.containsDuplicate(test0))
+    print(sol.containsDuplicate(test1))
+    print(sol.containsDuplicate(test2))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
