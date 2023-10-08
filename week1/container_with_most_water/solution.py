@@ -8,16 +8,11 @@ from typing import List
 # Notice that you may not slant the container.
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-
-        # Sort the integer list.
-        height.sort()
-
         output = -1
-        for i in reversed(range(len(height))):
-            if i != 0:
-                if height[i] == height[i - 1]:
-                    output = height[i] * height[i - 1]
-                    return output
-
+        for i in range(len(height) - 1):
+            for j in range(i + 1, len(height)):
+                if height[j] <= height[i]:
+                    distance = j - i
+                    if height[j] * distance > output:
+                        output = height[j] * distance
         return output
-    
