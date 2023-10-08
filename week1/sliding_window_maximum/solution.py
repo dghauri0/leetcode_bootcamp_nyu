@@ -9,7 +9,7 @@ class Solution:
 
         # Outer while loop goes through all sliding iterations.
         while right_edge <= len(nums) - 1:
-            local_max = -1
+            local_max = float('-inf')
             for i in range(left_edge, right_edge + 1):
                 if nums[i] > local_max:
                     local_max = nums[i]
