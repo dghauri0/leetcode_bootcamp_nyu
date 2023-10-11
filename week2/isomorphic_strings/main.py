@@ -9,8 +9,11 @@ if __name__ == '__main__':
     t1 = "bar"
     s2 = "paper"
     t2 = "title"
+    s3 = "badc"
+    t3 = "baba"
     print(sol.isIsomorphic(s0, t0))
     print(sol.isIsomorphic(s1, t1))
     print(sol.isIsomorphic(s2, t2))
+    print(sol.isIsomorphic(s3, t3))
 
 
