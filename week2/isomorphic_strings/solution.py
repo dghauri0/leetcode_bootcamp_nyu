@@ -1,6 +1,7 @@
+from collections import Counter
 
 class Solution:
-    # Check for one-to-one mappings. If one-to-many: false.
+    # Check for one-to-one mappings. If one-to-many: false. If many-to-one: false.
     def isIsomorphic(self, s: str, t: str) -> bool:
         comp_dict = Dictionary()
         count = 0
@@ -12,7 +13,10 @@ class Solution:
         for i in t:
             if i not in comp_dict.values():
                 output_flag = False
-                return output_flag
+            count = Counter(comp_dict.values())[str(i)]
+            if count > 1:
+                output_flag = False
+
 
         return output_flag
 
