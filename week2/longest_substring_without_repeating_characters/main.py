@@ -8,6 +8,6 @@ if __name__ == '__main__':
     s2 = "pwwkew"
     print(sol.lengthOfLongestSubstring(s0))
     print(sol.lengthOfLongestSubstring(s1))
-    print(sol.lengthOfLongestSubstring(s1))
+    print(sol.lengthOfLongestSubstring(s2))
 
 
