@@ -7,5 +7,5 @@ class Solution:
             for i in range(left_pointer, right_pointer):
                 if s[i] in t:
                     output = output + s[i]
-            
+
         return output
