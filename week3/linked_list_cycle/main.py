@@ -12,6 +12,7 @@ if __name__ == '__main__':
     for i in data0[1:]:
         temp.next = ListNode(i)
         temp = temp.next
+    head0.next.next.next.next = head0.next
 
     data1 = [1,2]
     head1 = ListNode(data1[0])

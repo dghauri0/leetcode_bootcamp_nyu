@@ -8,9 +8,12 @@ from listnode import ListNode
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        for i in head:
-            for j in head:
-                if i != j:
-                    if i.next == j.next:
-                        return True
+        temp0 = head.next
+        temp1 = head
+        if temp0 == None:
+            return False
+        while temp1 != None:
+            if temp0.val == temp1.val:
+                return True
+            temp1 = temp1.next
         return False
