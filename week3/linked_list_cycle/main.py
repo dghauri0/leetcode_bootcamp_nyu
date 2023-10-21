@@ -1,19 +1,32 @@
 from solution import Solution
+from listnode import ListNode
 
 sol = Solution()
 
+
 if __name__ == '__main__':
-    s0 = "egg"
-    t0 = "add"
-    s1 = "foo"
-    t1 = "bar"
-    s2 = "paper"
-    t2 = "title"
-    s3 = "badc"
-    t3 = "baba"
-    print(sol.isIsomorphic(s0, t0))
-    print(sol.isIsomorphic(s1, t1))
-    print(sol.isIsomorphic(s2, t2))
-    print(sol.isIsomorphic(s3, t3))
 
+    data0 = [3,2,0,-4]
+    head0 = ListNode(data0[0])
+    temp = head0
+    for i in data0[1:]:
+        temp.next = ListNode(i)
+        temp = temp.next
 
+    data1 = [1,2]
+    head1 = ListNode(data1[0])
+    temp = head1
+    for i in data1[1:]:
+        temp.next = ListNode(i)
+        temp = temp.next
+
+    data2 = [1]
+    head2 = ListNode(data2[0])
+    temp = head2
+    for i in data2[1:]:
+        temp.next = ListNode(i)
+        temp = temp.next
+
+    print(sol.hasCycle(head0))
+    print(sol.hasCycle(head1))
+    print(sol.hasCycle(head2))
