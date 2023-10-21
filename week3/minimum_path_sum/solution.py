@@ -1,16 +1,11 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-from typing import Optional
-
-
-class ListNode:
-     def __init__(self, x):
-         self.val = x
-         self.next = None
+from typing import List
 
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        sum = float("inf")
+        local_sum = 0
+        print(sum)
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                local_sum += grid[i][j]
