@@ -1,16 +1,13 @@
 # Definition for singly-linked list.
 # class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-from typing import Optional
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-
-class ListNode:
-     def __init__(self, x):
-         self.val = x
-         self.next = None
+from typing import Optional, List
+from listnode import ListNode
 
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        return None
