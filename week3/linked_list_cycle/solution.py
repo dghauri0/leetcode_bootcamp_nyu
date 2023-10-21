@@ -8,12 +8,16 @@ from listnode import ListNode
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        temp0 = head.next
-        temp1 = head
-        if temp0 == None:
-            return False
-        while temp1 != None:
-            if temp0.val == temp1.val:
+
+        # Maintain a list of visited nodes.
+        visited = []
+
+        # Traverse list checking if already visited and adding to visited.
+        temp = head
+        while temp is not None:
+            if temp in visited:
                 return True
-            temp1 = temp1.next
+            visited.append(temp)
+            temp = temp.next
+
         return False
