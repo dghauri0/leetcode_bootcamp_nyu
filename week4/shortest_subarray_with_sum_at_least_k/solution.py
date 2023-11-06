@@ -11,11 +11,11 @@ class Solution:
         sums_global = []
         length_global = []
 
-        while (right < len(nums) - 1) or (left < len(nums) - 1):
+        while (right < len(nums) - 1):
             sum = 0
             length = -1
 
-            for i in range(left, right):
+            for i in range(left, right + 1):
                 sum += nums[i]
 
             if sum >= k:
@@ -23,4 +23,12 @@ class Solution:
                 sums_global.append(sum)
                 length_global.append(length)
 
-            
+            if sum <= k:
+                right += 1
+            else:
+                left += 1
+
+        try:
+            return min(length_global)
+        except:
+            return -1
