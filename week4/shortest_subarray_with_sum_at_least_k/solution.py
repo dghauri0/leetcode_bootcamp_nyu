@@ -6,19 +6,21 @@ from typing import List
 
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
-        output = -1
-        sum = 0
-        count = 0
+        left = 0
+        right = 0
+        sums_global = []
+        length_global = []
 
-        for s in range(len(nums) - 1):
+        while (right < len(nums) - 1) or (left < len(nums) - 1):
+            sum = 0
+            length = -1
 
-            for i in range(s, len(nums)):
-                if sum <= k:
-                    sum += nums[i]
-                    count += 1
+            for i in range(left, right):
+                sum += nums[i]
 
             if sum >= k:
-                output = count
+                length = (right - left) + 1
+                sums_global.append(sum)
+                length_global.append(length)
 
-
-        return output
+            
