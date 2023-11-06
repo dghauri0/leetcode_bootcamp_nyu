@@ -6,5 +6,12 @@
 # Return the minimum number of moves required to make s valid.
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
-        
-        return -1
+        left_open_parenth_count = 0
+        right_open_parenth_count = 0
+        for i in range(len(s)):
+            if s[i] == ')':
+                left_open_parenth_count += 1
+            if s[i] == '(':
+                right_open_parenth_count += 1
+
+        return abs(left_open_parenth_count - right_open_parenth_count)
