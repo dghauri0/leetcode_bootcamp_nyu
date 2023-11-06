@@ -3,12 +3,15 @@ from solution import Solution
 sol = Solution()
 
 if __name__ == '__main__':
-    s_0 = "())"
-    s_1 = "((("
-    s_2 = "()))(("
-    print(sol.minAddToMakeValid(s_0))
-    print(sol.minAddToMakeValid(s_1))
-    print(sol.minAddToMakeValid(s_2))
+    nums_0 = [1]
+    k_0 = 1
+    nums_1 = [1,2]
+    k_1 = 4
+    nums_2 = [2,-1,2]
+    k_2 = 3
+    print(sol.shortestSubarray(nums_0, k_0))
+    print(sol.shortestSubarray(nums_1, k_1))
+    print(sol.shortestSubarray(nums_2, k_2))
 
 
 
