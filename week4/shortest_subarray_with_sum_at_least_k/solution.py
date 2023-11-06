@@ -10,12 +10,15 @@ class Solution:
         sum = 0
         count = 0
 
-        for i in range(len(nums)):
-            if sum <= k:
-                sum += nums[i]
-                count += 1
+        for s in range(len(nums) - 1):
 
-        if sum >= k:
-            output = count
+            for i in range(s, len(nums)):
+                if sum <= k:
+                    sum += nums[i]
+                    count += 1
+
+            if sum >= k:
+                output = count
+
 
         return output

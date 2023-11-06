@@ -11,10 +11,13 @@ if __name__ == '__main__':
     k_2 = 3
     nums_3 = [77,19,35,10,-14]
     k_3 = 19
+    nums_4 = [17,85,93,-45,-21]
+    k_4 = 150
     print(sol.shortestSubarray(nums_0, k_0))
     print(sol.shortestSubarray(nums_1, k_1))
     print(sol.shortestSubarray(nums_2, k_2))
     print(sol.shortestSubarray(nums_3, k_3))
+    print(sol.shortestSubarray(nums_4, k_4))
 
 
 
