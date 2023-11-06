@@ -24,9 +24,13 @@ class Solution:
                 length_global.append(length)
 
             if sum <= k:
-                right += 1
+                if right + 1 == len(nums) and left < right:
+                    left += 1
+                else:
+                    right += 1
             else:
                 left += 1
+                right = left
 
         try:
             return min(length_global)
