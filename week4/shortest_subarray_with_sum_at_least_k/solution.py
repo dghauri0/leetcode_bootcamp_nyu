@@ -6,4 +6,14 @@ from typing import List
 
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
-        return -1
+        output = -1
+        sum = 0
+
+        for i in range(len(nums)):
+            if sum <= k:
+                sum += nums[i]
+
+        if sum >= k:
+            output = sum
+
+        return output
