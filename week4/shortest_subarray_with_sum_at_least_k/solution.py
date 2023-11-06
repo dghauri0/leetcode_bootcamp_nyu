@@ -11,7 +11,7 @@ class Solution:
         sums_global = []
         length_global = []
 
-        while (right < len(nums) - 1):
+        while (right < len(nums)):
             sum = 0
             length = -1
 
