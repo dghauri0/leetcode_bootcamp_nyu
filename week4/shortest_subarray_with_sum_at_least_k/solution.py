@@ -8,12 +8,14 @@ class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
         output = -1
         sum = 0
+        count = 0
 
         for i in range(len(nums)):
             if sum <= k:
                 sum += nums[i]
+                count += 1
 
         if sum >= k:
-            output = sum
+            output = count
 
         return output
