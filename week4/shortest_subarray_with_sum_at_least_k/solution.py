@@ -26,6 +26,7 @@ class Solution:
             if sum <= k:
                 if right + 1 == len(nums) and left < right:
                     left += 1
+                    right = left
                 else:
                     right += 1
             else:
