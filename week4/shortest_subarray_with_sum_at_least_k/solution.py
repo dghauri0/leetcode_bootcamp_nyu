@@ -37,3 +37,4 @@ class Solution:
             return min(length_global)
         except:
             return -1
+
