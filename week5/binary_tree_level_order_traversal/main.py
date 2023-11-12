@@ -16,6 +16,6 @@ if __name__ == '__main__':
     root_2 = []
     root_2_tn = treenode.insertLevelOrder(root_2, 0, len(root_2))
     print(sol.levelOrder(root_0_tn))
-    print(sol.levelOrder(root_1))
-    print(sol.levelOrder(root_2))
+    print(sol.levelOrder(root_1_tn))
+    print(sol.levelOrder(root_2_tn))
 
