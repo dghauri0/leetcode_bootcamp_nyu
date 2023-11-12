@@ -1,7 +1,6 @@
+from typing import List
 # Given an m x n board of characters and a list of strings words,
 # return all words on the board.
-from typing import List
-
 
 # Each word must be constructed from letters of sequentially adjacent cells,
 # where adjacent cells are horizontally or vertically neighboring.
