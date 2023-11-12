@@ -1,29 +1,30 @@
 from typing import List
 
-# There is an undirected star graph consisting of n nodes labeled from 1 to n.
-# A star graph is a graph where there is one center node and exactly n - 1 edges
-# that connect the center node with every other node.
-
-# You are given a 2D integer array edges where each edges[i] = [ui, vi] indicates
-# that there is an edge between the nodes ui and vi.
-# Return the center of the given star graph.
-
+# Given an integer array nums and an integer k, return the k most frequent elements.
+# You may return the answer in any order.
 class Solution:
-    def findCenter(self, edges: List[List[int]]) -> int:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counts = {}
+        curr_num = nums[0]
+        curr_count = 0
+        for i in range(len(nums)):
+            if nums[i] == curr_num:
+                curr_count += 1
+            else:
+                counts[curr_num] = curr_count
+                curr_num = nums[i]
+                curr_count = 1
 
-        # Track visited nodes.
-        visited = []
+            # Edge case for last element in array
+            if i == len(nums) - 1:
+                counts[curr_num] = curr_count
 
-        # Iterate through each edge.
-        for i in range(len(edges)):
+        output = []
+        k_count = 0
+        for key, val in counts.items():
+            if k_count < k:
+                output.append(key)
+                k_count += 1
 
-            # Iterate through each node within edge.
-            # If it is already within the visited list, return that
-            # value as the answer as the node with >= 2 connections will
-            # be the center given the definition of a star graph (we do not need
-            # to check any further).
-            for j in range(len(edges[0])):
-                if edges[i][j] in visited:
-                    return edges[i][j]
-                visited.append(edges[i][j])
-        return -1
+        return output
+

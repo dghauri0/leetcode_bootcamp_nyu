@@ -3,10 +3,12 @@ from solution import Solution
 sol = Solution()
 
 if __name__ == '__main__':
-    edges_0 = [[1,2],[2,3],[4,2]]
-    edges_1 = [[1,2],[5,1],[1,3],[1,4]]
-    print(sol.findCenter(edges_0))
-    print(sol.findCenter(edges_1))
+    nums_0 = [1,1,1,2,2,3]
+    k_0 = 2
+    nums_1 = [1]
+    k_1 = 1
+    print(sol.topKFrequent(nums_0, k_0))
+    print(sol.topKFrequent(nums_1, k_1))
 
 
 
