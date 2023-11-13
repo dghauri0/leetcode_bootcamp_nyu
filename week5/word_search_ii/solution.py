@@ -47,7 +47,7 @@ class Solution:
                                     curr_word += board[b_i][b_j]
                         except IndexError:
                             # Index out of bound
-                            pass
+                            flag_right_nf = True
                         if board[b_i][b_j - 1]:
                             b_j -= 1
                             if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
@@ -55,13 +55,16 @@ class Solution:
                                 flag_left_nf = True
                             else:
                                 curr_word += board[b_i][b_j]
-                        if board[b_i + 1][b_j]:
-                            b_i += 1
-                            if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
-                                b_i -= 1
-                                flag_down_nf = True
-                            else:
-                                curr_word += board[b_i][b_j]
+                        try:
+                            if board[b_i + 1][b_j]:
+                                b_i += 1
+                                if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
+                                    b_i -= 1
+                                    flag_down_nf = True
+                                else:
+                                    curr_word += board[b_i][b_j]
+                        except IndexError:
+                            flag_down_nf = True
                         if board[b_i - 1][b_j]:
                             b_i -= 1
                             if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
@@ -77,9 +80,4 @@ class Solution:
                             # Maybe remove (pop) word from trie
                             break
 
-
-
         return output
-
-
-
