@@ -1,16 +1,19 @@
-# This is a sample Python script.
+from typing import List
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import treenode
+from solution import Solution
+from treenode import TreeNode
 
+sol = Solution()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    root_0 = [3, 1, 4, None, 2]
+    root_0_tn = treenode.insertLevelOrder(root_0, 0, len(root_0))
+    k_0 = 1
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    root_1 = [5, 3, 6, 2, 4, None, None, 1]
+    root_1_tn = treenode.insertLevelOrder(root_1, 0, len(root_1))
+    k_1 = 3
+
+    print(sol.kthSmallest(root_0_tn, k_0))
+    print(sol.kthSmallest(root_1_tn, k_1))
