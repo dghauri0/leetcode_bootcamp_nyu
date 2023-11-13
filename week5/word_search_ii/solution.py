@@ -27,15 +27,17 @@ class Solution:
                 if not board_visited[i][j]:
                     b_i = i
                     b_j = j
-                    board_visited[i][j] = True
                     dict = word_trie.query(board[i][j])
                     if len(dict) != 0:
+                        board_visited[i][j] = True
                         curr_word += board[i][j]
 
                     flag_right_nf = False
                     flag_left_nf = False
                     flag_down_nf = False
                     flag_up_nf = False
+                    previous_i = i
+                    previous_j = j
                     while (not flag_right_nf or not flag_left_nf or not flag_down_nf or not flag_up_nf) and len(dict) != 0:
                         try:
                             if board[b_i][b_j + 1]:
@@ -48,13 +50,16 @@ class Solution:
                         except IndexError:
                             # Index out of bound
                             flag_right_nf = True
-                        if board[b_i][b_j - 1]:
-                            b_j -= 1
-                            if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
-                                b_j += 1
-                                flag_left_nf = True
-                            else:
-                                curr_word += board[b_i][b_j]
+                        try:
+                            if board[b_i][b_j - 1]:
+                                b_j -= 1
+                                if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
+                                    b_j += 1
+                                    flag_left_nf = True
+                                else:
+                                    curr_word += board[b_i][b_j]
+                        except IndexError:
+                            flag_left_nf = True
                         try:
                             if board[b_i + 1][b_j]:
                                 b_i += 1
@@ -65,17 +70,21 @@ class Solution:
                                     curr_word += board[b_i][b_j]
                         except IndexError:
                             flag_down_nf = True
-                        if board[b_i - 1][b_j]:
-                            b_i -= 1
-                            if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
-                                b_i += 1
-                                flag_up_nf = True
-                            else:
-                                curr_word += board[b_i][b_j]
+                        try:
+                            if board[b_i - 1][b_j]:
+                                b_i -= 1
+                                test = len(word_trie.query(curr_word + board[b_i][b_j]))
+                                if len(word_trie.query(curr_word + board[b_i][b_j])) == 0:
+                                    b_i += 1
+                                    flag_up_nf = True
+                                else:
+                                    curr_word += board[b_i][b_j]
+                        except IndexError:
+                            flag_up_nf = True
 
-                        #dict = word_trie.query(curr_word)
+                        # dict = word_trie.query(curr_word)
 
-                        if words.__contains__(curr_word):
+                        if words.__contains__(curr_word) and not output.__contains__(curr_word):
                             output.append(curr_word)
                             # Maybe remove (pop) word from trie
                             break
